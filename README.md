@@ -20,7 +20,7 @@ You may gain access to the database with the following command:
 ```
 docker ps
 ```
-Which will return the <containerID> which is everytime differentiated, and then:
+Which will return the < containerID > which is everytime differentiated, and then:
 ```
 docker exec -it <containerID> mariadb -p
 ```
