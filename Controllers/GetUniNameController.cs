@@ -58,12 +58,5 @@ namespace Task_Unis.Controllers
             return Ok();
         }
 
-        public static string FirstCharToUpper(string input)
-        {
-            if (String.IsNullOrEmpty(input))
-                throw new ArgumentException("You have provided an empty quest!");
-            return input.First().ToString().ToUpper() + input.Substring(1).ToLower();
-        }
-
     }
 }
