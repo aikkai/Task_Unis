@@ -24,7 +24,7 @@ Which will return the <containerID> which is everytime differentiated, and then:
 ```
 docker exec -it <containerID> mariadb -p
 ```
-You may see additional information by utilizing queries in the database:
+You may see additional information by utilizing queries after entering the database:
 ```
 use Universities;
 ```
