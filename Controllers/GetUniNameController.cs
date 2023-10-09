@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics.Metrics;
 using System.Text.Encodings.Web;
 using System.Text.Json;
@@ -19,7 +20,7 @@ namespace Task_Unis.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult> GetAsync(string input)
+        public async Task<ActionResult> GetAsync([Required]string input)
         {
             //var upperFirst = FirstCharToUpper(input);
 

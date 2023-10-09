@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc;
 //using Newtonsoft.Json;
 using System.Text.Encodings.Web;
 using System.Text.Json;
@@ -20,7 +21,7 @@ namespace Task_Unis.Controllers
         }
 
         [HttpPost]
-        public async Task PostAsync(string country)
+        public async Task PostAsync([Required] string country)
         {
 
             country = FirstCharToUpper(country);

@@ -24,6 +24,7 @@ namespace Task_Unis.Controllers
             var result = await request.Content.ReadAsStringAsync();
             var line_uni = JsonConvert.DeserializeObject<List<Unis_Json>>(result);
 
+
             foreach (var data in line_uni)
             { 
 
@@ -42,6 +43,32 @@ namespace Task_Unis.Controllers
                     _context.Add(new_entry);
                     await _context.SaveChangesAsync();
                 }
+            }
+
+            while (true)
+            {
+                foreach (var data in line_uni)
+                {
+
+                    var data_name = data.name;
+                    var data_url = data.web_pages;
+                    var data_country = data.country;
+
+                    var new_entry = new University();
+                    new_entry.UniversityName = data_name;
+                    new_entry.UniversityCountry = data_country;
+                    string v = string.Join(",", data_url);
+                    new_entry.UniversityUrl = v;
+
+                    var ex = _context.Universities.Any(u =>
+                        u.UniversityName == data_name && u.UniversityCountry == data_country && u.UniversityUrl == v);
+                    if (!ex)
+                    {
+                        _context.Add(new_entry);
+                        await _context.SaveChangesAsync();
+                    }
+                }
+
             }
             return Ok();
         }
